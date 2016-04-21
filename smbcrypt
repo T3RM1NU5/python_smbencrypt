@@ -1,0 +1,12 @@
+#!/usr/bin/python3
+import hashlib,binascii,sys
+
+
+pwd=sys.argv[1]
+hash = hashlib.new('md4', pwd.encode('utf-16le')).digest()
+nthash = bytes.decode((binascii.hexlify(hash)))
+
+
+print("LM Hash                            NT Hash")
+print("--------------------------------   --------------------------------")
+print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX   %s"  % (nthash))
